@@ -15,6 +15,6 @@ spec:
         app: sample-app
     spec:
       containers:
-      - image: gcr.io/ab-academy-demo/my-image
+      - image: gcr.io/ab-academy-demo/sample-app
         name: my-image
         imagePullPolicy: Always
