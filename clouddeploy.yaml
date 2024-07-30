@@ -1,0 +1,29 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: sample-app
+description: sample app pipeline
+serialPipeline:
+  stages:
+  - targetId: staging
+    profiles: []
+  - targetId: prod
+    profiles: []
+---
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: staging
+description: staging cluster
+gke:
+  cluster: projects/PROJECT_ID/locations/us-central1/clusters/staging-cluster
+---
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: prod
+description: production cluster
+gke:
+  cluster: projects/PROJECT_ID/locations/us-central1/clusters/prod-cluster
