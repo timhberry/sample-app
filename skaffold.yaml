@@ -2,8 +2,8 @@ apiVersion: skaffold/v4beta7
 kind: Config
 metadata:
   name: sample-app
+manifests:
+  rawYaml:
+  - k8s/*
 deploy:
-  kubectl:
-    manifests:
-      - ./k8s/deployment.yaml
-      - ./k8s/service.yaml
+  kubectl: {}
