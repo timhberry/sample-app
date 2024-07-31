@@ -7,3 +7,6 @@ manifests:
   - k8s/*
 deploy:
   kubectl: {}
+    tagPolicy:
+      envTemplate:
+        template: ${COMMIT_SHA}

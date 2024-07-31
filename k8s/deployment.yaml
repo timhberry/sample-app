@@ -15,6 +15,6 @@ spec:
         app: sample-app
     spec:
       containers:
-      - image: gcr.io/ab-academy-demo/sample-app:${IMAGE_TAG}
+      - image: gcr.io/ab-academy-demo/sample-app:${COMMIT_SHA}
         name: sample-app
         imagePullPolicy: Always
