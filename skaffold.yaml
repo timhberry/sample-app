@@ -7,9 +7,3 @@ manifests:
   - k8s/*
 deploy:
   kubectl: {}
-    overrides:
-      - path: k8s/deployment.yaml
-        patches:
-        - path: spec/template/spec/containers/0/image
-          op: replace
-          value: gcr.io/$PROJECT_ID/sample-app:${COMMIT_SHA}
