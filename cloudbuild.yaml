@@ -7,23 +7,3 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/sample-app:$COMMIT_SHA']
 
-- id: Update container image name
-  name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: 'bash'
-  args:
-  - '-c'
-  - |
-    sed -i "s/_IMAGE_NAME/gcr.io\/$PROJECT_ID\/sample-app:$COMMIT_SHA/g" k8s/deployment.yaml
-    cat k8s/deployment.yaml
-
-- id: Trigger Cloud Deploy
-  name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: 'bash'
-  args:
-  - '-c'
-  - |
-    SHORT_SHA=$(echo $COMMIT_SHA | cut -c1-7)
-    gcloud deploy releases create "release-$SHORT_SHA" \
-      --delivery-pipeline=sample-app \
-      --region=us-central1 \
-      --images=sample-app=gcr.io/$PROJECT_ID/sample-app:$COMMIT_SHA
