@@ -15,6 +15,6 @@ spec:
         app: sample-app
     spec:
       containers:
-      - image: IMAGE_NAME
+      - image: container-image
         name: sample-app
         imagePullPolicy: Always
