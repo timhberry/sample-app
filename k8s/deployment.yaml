@@ -5,7 +5,7 @@ metadata:
     app: sample-app
   name: sample-app
 spec:
-  replicas: 3
+  replicas: 1 
   selector:
     matchLabels:
       app: sample-app
@@ -13,8 +13,10 @@ spec:
     metadata:
       labels:
         app: sample-app
+      annotations:
+        commit: defaultShaValue # from-param: ${git-sha}
     spec:
       containers:
-      - image: gcr.io/ab-academy-demo/sample-app:${COMMIT_SHA}
+      - image: gcr.io/ab-academy-demo/sample-app
         name: sample-app
         imagePullPolicy: Always
