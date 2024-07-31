@@ -12,4 +12,4 @@ deploy:
         patches:
         - path: spec/template/spec/containers/0/image
           op: replace
-          value: $IMAGE_NAME
+          value: "test"
