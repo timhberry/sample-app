@@ -4,12 +4,12 @@ metadata:
   name: sample-app
 manifests:
   rawYaml:
-  - ./k8s/*
+  - k8s/*
 deploy:
   kubectl: {}
     overrides:
-      - path: ./k8s/deployment.yaml
+      - path: k8s/deployment.yaml
         patches:
         - path: spec/template/spec/containers/0/image
           op: replace
-          value: gcr.io/$PROJECT_ID/$IMAGE_NAME:${COMMIT_SHA}
+          value: $IMAGE_NAME

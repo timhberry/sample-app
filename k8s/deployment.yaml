@@ -13,8 +13,6 @@ spec:
     metadata:
       labels:
         app: sample-app
-      annotations:
-        commit: defaultShaValue # from-param: ${git-sha}
     spec:
       containers:
       - image: gcr.io/ab-academy-demo/sample-app
