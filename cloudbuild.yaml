@@ -13,8 +13,8 @@ steps:
   args:
   - '-c'
   - |
-    IMAGE_NAME=gcr.io/$PROJECT_ID/sample-app:$COMMIT_SHA
-    sed -i "s/container-image/$IMAGE_NAME/g" k8s/deployment.yaml
+    _IMAGE_NAME=gcr.io/$PROJECT_ID/sample-app:$COMMIT_SHA
+    sed -i "s/_IMAGE_NAME/$IMAGE_NAME/g" k8s/deployment.yaml
     cat k8s/deployment.yaml
 
 - id: Trigger Cloud Deploy
